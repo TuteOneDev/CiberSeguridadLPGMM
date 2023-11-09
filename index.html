@@ -88,6 +88,9 @@
         .logo:hover {
             transform: scale(0.8);
         }
+        .ip_style {
+            color: white;
+        }
 
     </style>
 </head>
@@ -102,8 +105,16 @@
         </div>
         <a href="https://www.canva.com/design/DAFzCtyUVdY/RV4Uuguxw_kc2cbxgPH6pQ/view?utm_content=DAFzCtyUVdY&utm_campaign=designshare&utm_medium=link&utm_source=editor#1" class="link-button" target="_blank">Consigue aquí la presentación</a>
         <a href="https://www.security.org/how-secure-is-my-password/" class="link-button" target="_blank">¿Qué tan segura es tu contraseña?</a>
+        <div>
+            <a id="ip", class="ip_style"></a>
+        </div>
     </div>
     <script>
+        fetch('https://api.ipify.org/?format=json')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('ip').textContent = `Tu dirección IP es: ${data.ip}`;
+        });
         // Matrix animation
         const matrixTextContainer = document.querySelector('.matrix-text-container');
 
